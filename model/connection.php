@@ -4,24 +4,21 @@ class Conexion
   {
     private $conexion;
 
-    function crear_conexion()
-      {
-        if(!isset($this->conexion)){
-          $db_host="127.0.0.1";
-          $db_user="proyecto";
-          $db_pass="proyecto";
-          $db_base="grupo56";
-          $this->conexion = new PDO("mysql:dbname=$db_base;host=$db_host",$db_user,$db_pass);
+    function crear_conexion(){
+      if(!isset($this->conexion)){
+        $db_host="127.0.0.1";
+        $db_user="proyecto";
+        $db_pass="proyecto";
+        $db_base="records";
+        $this->conexion = new PDO("mysql:dbname=$db_base;host=$db_host",$db_user,$db_pass);
         }
       }
 
-    function cerrar_conexion()
-      {
-        $this->conexion = null;
+    function cerrar_conexion() {
+      $this->conexion = null;
       }
 
-    function consulta($consulta, $atributos=null)
-      {
+    function consulta($consulta, $atributos=null) {
         $this->crear_conexion();
         try{
           $query = $this->conexion->prepare($consulta);
@@ -35,10 +32,9 @@ class Conexion
         return $resultado;
       }
 
-    function consulta_fetch($consulta, $atributos=null)
-      {
+    function consulta_fetch($consulta, $atributos=null) {
         $this->crear_conexion();
-        try{
+        try {
           $query = $this->conexion->prepare($consulta);
           $query->execute($atributos);
           $resultado = $query->fetch(PDO::FETCH_ASSOC);
@@ -64,7 +60,5 @@ class Conexion
         $this->cerrar_conexion();
         return $affected_rows;
       }
-
   }
-
 ?>
