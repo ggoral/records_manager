@@ -5,7 +5,7 @@
     <title id="pageTitle">Welcome to the real World</title>
   </head>
   <body>
-    <form id="login_form" action="./controller/login.php" method="post">
+    <form id="login_form" action="login.php" method="post">
       <label for="user">User:</label>
       <input type="text" name="user" id="user" value="" tabindex="1" required>
       <label for="pass">Password:</label> 

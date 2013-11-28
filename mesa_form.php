@@ -5,7 +5,7 @@
     <title id="pageTitle">Welcome to the real World</title>
   </head>
   <body>
-    <form id="mesa_form" action="./controller/mesa.php" method="get">
+    <form id="mesa_form" action="mesa.php" method="get">
       <fieldset>
          <legend>Mesa de Entrada:</legend>
       <label for="expediente">Expediente:</label>

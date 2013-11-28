@@ -1,5 +1,5 @@
 <?php
-$tipo_usuario = array(1);
+$tipo_usuario = array('1');
 require_once "validar_acceso.php";
 
 try {
