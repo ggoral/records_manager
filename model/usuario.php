@@ -9,7 +9,7 @@ $usuario = array(
   "rol" => "1",
   );
 
-class usuario {
+class Usuario {
 
 public static function login($username, $password){
   $conexion = new Conexion();
@@ -24,10 +24,10 @@ public static function obtener_usuarios(){
   } 
 }
 
-//$user = usuario::login('ggoral','ggoral');
+//$user = Usuario::login('ggoral','ggoral');
 //var_dump($user);
 
-$users = usuario::obtener_usuarios();
-var_dump($users);
+//$users = Usuario::obtener_usuarios();
+//var_dump($users);
 
 ?>
