@@ -6,15 +6,15 @@ $expediente = array(
   "id_expediente" => "",
   "causante" => "",
   "extracto" => "",
-  "personas" => array("Gonzalo", "Jonatan", "Agustin"),
-  "keywords" => array("foo", "bar", "hallo", "world"),
+  "personas" => array("Gonzalo", "Jonatan", "Agustin"), //Esta relacion es 1 a N
+  "keywords" => array("foo", "bar", "hallo", "world"), //Esta relacion es N a N
    ); 
 
 // $expediente["id_usuario"] = seter
 // $expediente["id_usuario"]
 // array_search("keyword",$expediente["keywords"]);
-//echo array_search("foo",$expediente["keywords"]);
-//echo in_array("fo",$expediente["keywords"]);
+// echo array_search("foo",$expediente["keywords"]);
+// echo in_array("fo",$expediente["keywords"]);
 
 
 class Expediente {
@@ -35,16 +35,29 @@ public static function obtener_keywords($id_expediente){
   $conexion = new Conexion();
   $row = $conexion->consulta("SELECT k.keyword 
                               FROM keyword AS k 
-                              INNER JOIN expediente AS e on  k.id_keyword = e.keyword
-                              WHERE e.id_expediente = ?",array($id_expediente));
+                              INNER JOIN expediente_keyword AS ek on  ek.id_keyword = k.id_keyword
+                              WHERE ek.id_expediente = ?",array($id_expediente));
+  return $row;
+  }
+
+public static function obtener_personas($id_expediente){
+  $conexion = new Conexion();
+  $row = $conexion->consulta("SELECT persona 
+                              FROM persona 
+                              WHERE id_expediente = ?",array($id_expediente));
   return $row;
   } 
+
 }
 
 //$expediente = Expediente::obtener_expediente("1");
 //var_dump($expediente);
 
-$expedientes = Expediente::obtener_expedientes();
-var_dump($expedientes);
+#$expedientes = Expediente::obtener_expedientes();
+#var_dump($expedientes);
+
+//$keywords = Expediente::obtener_keywords("2");
+//var_dump($keywords);
+
 
 ?>

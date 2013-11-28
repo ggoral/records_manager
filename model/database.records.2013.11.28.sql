@@ -13,16 +13,6 @@ CREATE TABLE `keyword` (
 
 insert  into `keyword`(`id_keyword`,`keyword`) values (1,'key1'),(2,'key2'),(3,'key3'),(4,'key4');
 
-DROP TABLE IF EXISTS `persona`;
-
-CREATE TABLE `persona` (
-  `id_persona` int(11) NOT NULL AUTO_INCREMENT,
-  `persona` varchar(50) NOT NULL,
-  PRIMARY KEY (`id_persona`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
-
-insert  into `persona`(`id_persona`,`persona`) values (1,'persona1'),(2,'persona2'),(3,'persona3'),(4,'persona4');
-
 DROP TABLE IF EXISTS `usuario`;
 
 CREATE TABLE `usuario` (
@@ -44,7 +34,7 @@ CREATE TABLE `expediente` (
   PRIMARY KEY (`id_expediente`)
   ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
-insert  into `expediente`(`id_expediente`,`causante`,`extracto`) values (1,'causante','extracto');
+insert into `expediente`(`id_expediente`,`causante`,`extracto`) values (1,'causante','extracto'),(2,'causante2','extracto2');
 
 DROP TABLE IF EXISTS `expediente_keyword`;
 
@@ -57,5 +47,16 @@ CREATE TABLE `expediente_keyword` (
   FOREIGN KEY (`id_keyword`) REFERENCES `keyword` (`id_keyword`) ON DELETE NO ACTION ON UPDATE NO ACTION
   ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
-insert  into `expediente_keyword`(`id_expediente_keyword`,`id_expediente`,`id_keyword`) values (1,1,1), (2,1,2),(3,1,3);
+insert  into `expediente_keyword`(`id_expediente_keyword`,`id_expediente`,`id_keyword`) values (1,1,1), (2,1,2),(3,1,3),(4,2,3);
 
+DROP TABLE IF EXISTS `persona`;
+
+CREATE TABLE `persona` (
+  `id_persona` int(11) NOT NULL AUTO_INCREMENT,
+  `persona` varchar(50) NOT NULL,
+  `id_expediente` int(11) NOT NULL,
+  PRIMARY KEY (`id_persona`),
+  FOREIGN KEY (`id_expediente`) REFERENCES `expediente` (`id_expediente`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
+insert  into `persona`(`id_persona`,`persona`,`id_expediente`) values (1,'persona1',1),(2,'persona2',1),(3,'persona3',2),(4,'persona4',2);
