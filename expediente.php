@@ -40,6 +40,16 @@ public static function obtener_keywords($id_expediente){
   return $row;
   }
 
+public static function obtener_expedientes_keywords($keyword){
+  $conexion = new Conexion();
+  $row = $conexion->consulta("SELECT e.id_expediente 
+                              FROM expediente AS e 
+                              INNER JOIN expediente_keyword AS ek on  ek.id_expediente = e.id_expediente
+                              INNER JOIN keyword AS k on  ek.id_keyword = k.id_keyword
+                              WHERE k.keyword = ?",array($keyword));
+  return $row;
+  }
+
 public static function obtener_personas($id_expediente){
   $conexion = new Conexion();
   $row = $conexion->consulta("SELECT persona 
@@ -53,11 +63,13 @@ public static function obtener_personas($id_expediente){
 //$expediente = Expediente::obtener_expediente("1");
 //var_dump($expediente);
 
-#$expedientes = Expediente::obtener_expedientes();
-#var_dump($expedientes);
+//$expedientes = Expediente::obtener_expedientes();
+//var_dump($expedientes);
 
 //$keywords = Expediente::obtener_keywords("2");
 //var_dump($keywords);
 
+//$expedientes_por_keyword = Expediente::obtener_expedientes_keywords("key3");
+//var_dump($expedientes_por_keyword);
 
 ?>
