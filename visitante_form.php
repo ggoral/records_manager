@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title id="pageTitle">Welcome to the real World</title>
+    <script type="text/javascript" src="validar.js"></script>
   </head>
   <body>
     <form id="visitante_form" action="visitante.php" method="get">
