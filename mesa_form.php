@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title id="pageTitle">Welcome to the real World</title>
-    <script type="text/javascript" src="validar.js"></script>
+    <script src="validar.js"></script>
   </head>
   <body>
     <form id="mesa_form" action="mesa.php" onsubmit="return validar_mesa()" method="get">
