@@ -5,6 +5,7 @@
   <title id="pageTitle">Welcome to the real World</title>
 </head>
 <body>
+  {% if list|length > 0 %}
     <table border="1">
     <tr>
       <th>ID</th>
@@ -23,5 +24,8 @@
       {% endfor %}
       </tr>
     </table>
+    {% else %}
+    <p> Ups!! Parece que no tenemos resultados....</p>
+  {% endif %}
 </body>
 </html>

@@ -10,8 +10,7 @@
       <input type="text" name="user" id="user" value="" tabindex="1" required>
       <label for="pass">Password:</label> 
       <input type="password" name="pass" id="pass" tabindex="2" required>
-      <input type="checkbox" name="persistent" id="persistent_box" value="1" tabindex="3">
-      <input type="submit" value="Log In" id="submit" tabindex="4">
+      <input type="submit" value="Log In" id="submit" tabindex="3">
     </form>   
   </body>
 </html>
